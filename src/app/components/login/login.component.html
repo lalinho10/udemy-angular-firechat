@@ -1,0 +1,20 @@
+<div class="login-container">
+    <div class="row" *ngIf="chatService.usuario.uid">
+        <div class="col-sm-12 text-right">
+            <button type="button" class="btn btn-outline-danger" (click)="logout()">
+                <i class="fas fa-sign-out-alt"></i>
+            </button>
+        </div>
+    </div>
+    <div class="row" *ngIf="!chatService.usuario.uid">
+        <div class="col-sm-12 text-center">
+            <p>Elija su cuenta de acceso favorita</p>
+            <button type="button" class="btn btn-outline-primary" (click)="login('google')">
+                <i class="fab fa-google"></i>
+            </button>&nbsp;
+            <button type="button" class="btn btn-outline-info" (click)="login('twitter')">
+                <i class="fab fa-twitter"></i>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="chat-window">
+    <h3>Chat</h3>
+    <hr>
+    <div class="app-mensajes" id="app-mensajes">
+        <div class="chat-message" [ngClass]="{ 'text-right': chat.senderUid === chatService.usuario.uid }" *ngFor="let chat of chatService.chats">
+            <p class="chat-bubble" [ngClass]="{ 'self-bubble': chat.senderUid === chatService.usuario.uid, 'other-bubble': chat.senderUid !== chatService.usuario.uid }">
+                {{chat.text}}
+            </p>
+            <span class="badge badge-light">
+                {{chat.sender}}
+            </span>
+            <span class="badge badge-light">
+                {{chat.sendTime | date:'dd/MM/yyyy HH:mm'}}
+            </span>
+        </div>
+    </div>
+    <input type="text" placeholder="Enviar mensaje" class="form-control" name="textMessage" [(ngModel)]="textMessage" (keyup.enter)="sendMessage()">
+</div>
